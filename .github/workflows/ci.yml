@@ -1,0 +1,13 @@
+name: instabox fork test
+on:
+  push:
+  pull_request:
+jobs:
+  probe:
+    runs-on: instabox-medium
+    steps:
+      - run: |
+          echo "repo=${{ github.repository }} event=${{ github.event_name }} actor=${{ github.actor }}"
+          echo "pr_head_repo=${{ github.event.pull_request.head.repo.full_name }}"
+          hostname
+          uname -a
